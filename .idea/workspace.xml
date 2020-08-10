@@ -137,15 +137,28 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/projects" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="a make:test ProjectsTest" />
       <command value="a config:cache" />
+      <command value="a make:migration" />
+      <command value="a make:migration create_projects_table" />
+      <command value="a make:model Project" />
+      <command value="a make:controller ProjectsController" />
     </option>
   </component>
   <component name="RunManager" selected="PHPUnit.ProjectsTest.a_user_can_create_a_project">
+    <configuration name="ProjectsTest.a_user_can_create_a_project (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ProjectsTest" configuration_file="$PROJECT_DIR$/../../../../vagrant/birdboard/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" method="a_user_can_create_a_project" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="ProjectsTest.a_user_can_create_a_project" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\ProjectsTest" configuration_file="$PROJECT_DIR$/../../../../vagrant/birdboard/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" method="a_user_can_create_a_project" scope="Method" />
       <method v="2" />
@@ -157,6 +170,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.ProjectsTest.a_user_can_create_a_project" />
+        <item itemvalue="PHPUnit.ProjectsTest.a_user_can_create_a_project (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +182,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597077406188</updated>
-      <workItem from="1597077407324" duration="2086000" />
+      <workItem from="1597077407324" duration="4211000" />
     </task>
     <servers />
   </component>
@@ -188,26 +202,30 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2600" y="368" width="539" height="266" key="FrameworkEditDialogDimensionKey/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597077794448" />
-    <state width="1874" height="284" key="GridCell.Tab.0.bottom" timestamp="1597079398288">
+    <state width="1874" height="284" key="GridCell.Tab.0.bottom" timestamp="1597081483769">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="284" key="GridCell.Tab.0.bottom/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079398288" />
-    <state width="1874" height="284" key="GridCell.Tab.0.center" timestamp="1597079398288">
+    <state width="1874" height="284" key="GridCell.Tab.0.bottom/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597081483769" />
+    <state width="1874" height="284" key="GridCell.Tab.0.center" timestamp="1597081483768">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="284" key="GridCell.Tab.0.center/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079398288" />
-    <state width="1874" height="284" key="GridCell.Tab.0.left" timestamp="1597079398288">
+    <state width="1874" height="284" key="GridCell.Tab.0.center/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597081483768" />
+    <state width="1874" height="284" key="GridCell.Tab.0.left" timestamp="1597081483768">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="284" key="GridCell.Tab.0.left/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079398288" />
-    <state width="1874" height="284" key="GridCell.Tab.0.right" timestamp="1597079398288">
+    <state width="1874" height="284" key="GridCell.Tab.0.left/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597081483768" />
+    <state width="1874" height="284" key="GridCell.Tab.0.right" timestamp="1597081483769">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="284" key="GridCell.Tab.0.right/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079398288" />
-    <state x="2364" y="129" width="1022" height="737" key="SettingsEditor" timestamp="1597077801620">
+    <state width="1874" height="284" key="GridCell.Tab.0.right/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597081483769" />
+    <state x="2675" y="465" width="399" height="156" key="NewPhpFileDialog" timestamp="1597081142643">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2364" y="129" width="1022" height="737" key="SettingsEditor/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597077801620" />
+    <state x="2675" y="465" width="399" height="156" key="NewPhpFileDialog/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597081142643" />
+    <state x="2364" y="129" width="1022" height="737" key="SettingsEditor" timestamp="1597081317554">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2364" y="129" width="1022" height="737" key="SettingsEditor/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597081317554" />
     <state x="2632" y="358" width="486" height="285" key="SymfonyComponentCompositeDataDialog" timestamp="1597077755956">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -216,9 +234,13 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2638" y="358" width="463" height="286" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597077650608" />
-    <state x="2544" y="245" width="672" height="677" key="run.anything.popup" timestamp="1597079374779">
+    <state x="2544" y="245" width="672" height="677" key="run.anything.popup" timestamp="1597081483705">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2544" y="245" width="672" height="677" key="run.anything.popup/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079374779" />
+    <state x="2544" y="245" width="672" height="677" key="run.anything.popup/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597081483705" />
+    <state x="2543" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1597081491634">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2543" y="239" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597081491634" />
   </component>
 </project>
