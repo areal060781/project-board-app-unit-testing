@@ -1,14 +1,13 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 @tailwind base;
 
 @tailwind components;
+
+.button{
+    @apply bg-blue-500 text-white no-underline rounded-lg text-sm px-5;
+    box-shadow: 0 2px 7px #b0eaff;
+}
 
 @tailwind utilities;
