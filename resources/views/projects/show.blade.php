@@ -4,7 +4,8 @@
     <header class="flex items-center mb-3 py-4">
         <div class="flex justify-between items-end w-full">
             <p class="text-gray-500 text-sm font-normal">
-                <a href="/projects" class="text-gray-500 text-sm font-normal no-underline">My Projects</a> / {{$project->title}}
+                <a href="/projects" class="text-gray-500 text-sm font-normal no-underline">My Projects</a>
+                / {{$project->title}}
             </p>
 
             <a href="/projects/create" class="button py-2 px-4">Create New Project</a>
@@ -19,6 +20,12 @@
                     @foreach ($project->tasks as $task)
                         <div class="card mb-3">{{$task->body}}</div>
                     @endforeach
+                    <div class="card mb-3">
+                        <form action="{{$project->path().'/tasks'}}" method="post">
+                            @csrf
+                            <input type="text" name="body" class="w-full" placeholder="Add a new task...">
+                        </form>
+                    </div>
                 </div>
                 <div>
                     <h2 class="text-lg text-gray-500 font-normal mb-3">General Notes</h2>
