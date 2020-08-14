@@ -47,9 +47,25 @@ class ProjectsController extends Controller
             abort(403);
         }*/
 
-        $project->update(request('notes'));
+        $project->update([
+            'notes' => request('notes')
+        ]);
 
         return redirect($project->path());
 
+    }
+
+    /**
+     * Validate the request attributes.
+     *
+     * @return array
+     */
+    protected function validateRequest()
+    {
+        return request()->validate([
+            'title' => 'sometimes|required',
+            'description' => 'sometimes|required',
+            'notes' => 'nullable'
+        ]);
     }
 }
