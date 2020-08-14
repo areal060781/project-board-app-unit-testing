@@ -60,7 +60,8 @@ class ProjectTasksTest extends TestCase
 
         $project = factory(Project::class)->create();
 
-        $this->post($project->path() . '/tasks', ['body' => 'Test task'])->assertStatus(403);
+        $this->post($project->path() . '/tasks', ['body' => 'Test task'])
+            ->assertStatus(403);
 
         $this->assertDatabaseMissing('tasks', ['body' => 'Test tasks']);
     }
