@@ -3,31 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Project;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProjectsController extends Controller
 {
+    /**
+     * View all projects.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $projects = Auth::user()->projects;
+        $projects = auth()->user()->projects;
 
         return view('projects.index', compact('projects'));
     }
 
-    public function store()
-    {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'notes' => 'min:3'
-        ]);
-
-        $project = Auth::user()->projects()->create($attributes);
-
-        return redirect($project->path());
-    }
-
+    /**
+     * Show a single project.
+     *
+     * @param Project $project
+     *
+     * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function show(Project $project)
     {
         $this->authorize('update', $project);
@@ -35,24 +33,53 @@ class ProjectsController extends Controller
         return view('projects.show', compact('project'));
     }
 
+    /**
+     * Create a new project.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         return view('projects.create');
     }
 
+    /**
+     * Persist a new project.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store()
+    {
+        $project = auth()->user()->projects()->create($this->validateRequest());
+
+        return redirect($project->path());
+    }
+
+    /**
+     * Edit the project.
+     *
+     * @param  Project $project
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Project $project)
+    {
+        return view('projects.edit', compact('project'));
+    }
+
+    /**
+     * Update the project.
+     *
+     * @param  Project $project
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update(Project $project)
     {
         $this->authorize('update', $project);
-        /*if (Auth::user()->isNot($project->owner)){
-            abort(403);
-        }*/
 
-        $project->update([
-            'notes' => request('notes')
-        ]);
+        $project->update($this->validateRequest());
 
         return redirect($project->path());
-
     }
 
     /**
@@ -63,9 +90,9 @@ class ProjectsController extends Controller
     protected function validateRequest()
     {
         return request()->validate([
-            'title' => 'sometimes|required',
-            'description' => 'sometimes|required',
-            'notes' => 'nullable'
+            'title' => 'required',
+            'description' => 'required',
+            'notes' => 'min:3'
         ]);
     }
 }

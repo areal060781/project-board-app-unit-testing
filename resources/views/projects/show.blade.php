@@ -8,7 +8,7 @@
                 / {{$project->title}}
             </p>
 
-            <a href="/projects/create" class="button py-2 px-4">Create New Project</a>
+            <a href="{{$project->path().'/edit'}}" class="button py-2 px-4">EditProject</a>
         </div>
     </header>
 
@@ -24,8 +24,10 @@
                                 @method('patch')
                                 @csrf
                                 <div class="flex">
-                                    <input type="text" name="body" id="body" value="{{$task->body}}" class="w-full {{$task->completed ? 'text-gray-500' : ''}}">
-                                    <input type="checkbox" name="completed" id="completed" onChange="this.form.submit()" {{$task->completed ? 'checked' : ''}}>
+                                    <input type="text" name="body" id="body" value="{{$task->body}}"
+                                           class="w-full {{$task->completed ? 'text-gray-500' : ''}}">
+                                    <input type="checkbox" name="completed" id="completed"
+                                           onChange="this.form.submit()" {{$task->completed ? 'checked' : ''}}>
                                 </div>
                             </form>
                         </div>
