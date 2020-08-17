@@ -7,6 +7,20 @@ use App\Project;
 class ProjectsController extends Controller
 {
     /**
+     * Validate the request attributes.
+     *
+     * @return array
+     */
+    protected function validateRequest()
+    {
+        return request()->validate([
+            'title' => 'sometimes|required',
+            'description' => 'sometimes|required',
+            'notes' => 'nullable'
+        ]);
+    }
+
+    /**
      * View all projects.
      *
      * @return \Illuminate\Http\Response
@@ -80,19 +94,5 @@ class ProjectsController extends Controller
         $project->update($this->validateRequest());
 
         return redirect($project->path());
-    }
-
-    /**
-     * Validate the request attributes.
-     *
-     * @return array
-     */
-    protected function validateRequest()
-    {
-        return request()->validate([
-            'title' => 'sometimes|required',
-            'description' => 'sometimes|required',
-            'notes' => 'nullable'
-        ]);
     }
 }
