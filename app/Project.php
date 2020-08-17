@@ -58,4 +58,17 @@ class Project extends Model
     {
         return $this->hasMany(Activity::class);
     }
+
+    /**
+     * Record activity for a project
+     *
+     * @param string $type
+     */
+    public function recordActivity(string $type): void
+    {
+        Activity::create([
+            'project_id' => $this->id,
+            'description' => $type
+        ]);
+    }
 }
