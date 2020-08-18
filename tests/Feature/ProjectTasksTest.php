@@ -69,7 +69,7 @@ class ProjectTasksTest extends TestCase
     }
 
     /** @test */
-    public function a_task_can_be_marked_as_incomplete()
+    public function a_task_can_be_marked_as_incompleted()
     {
         $project = ProjectFactory::withTasks(1)->create();
 
