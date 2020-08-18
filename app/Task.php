@@ -20,15 +20,6 @@ class Task extends Model
         return "/projects/{$this->project->id}/tasks/{$this->id}";
     }
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::created(function ($task) {
-            $task->project->recordActivity('created_task');
-        });
-    }
-
     public function complete()
     {
         $this->update(['completed' => true]);

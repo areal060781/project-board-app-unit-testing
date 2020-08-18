@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Observers\ProjectObserver;
-use App\Project;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -26,7 +24,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        Project::observe(ProjectObserver::class);
     }
 }
