@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Task;
 use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -31,7 +32,7 @@ class TriggerActivityTest extends TestCase
         $this->assertEquals('updated', $project->activity->last()->description);
     }
 
-    /** @test  */
+    /** @test */
     public function creating_a_new_task()
     {
         $project = ProjectFactory::create();
@@ -40,23 +41,30 @@ class TriggerActivityTest extends TestCase
 
         $this->assertCount(2, $project->activity);
 
-        $this->assertEquals('created_task', $project->activity->last()->description);
+        tap($project->activity->last(), function ($activity) {
+            $this->assertEquals('created_task', $activity->description);
+            $this->assertInstanceOf(Task::class, $activity->subject);
+            $this->assertEquals('Some task', $activity->subject->body);
+        });
     }
 
-    /** @test  */
+    /** @test */
     public function completing_a_task()
     {
         $project = ProjectFactory::withTasks(1)->create();
 
         $this->actingAs($project->owner)
             ->patch($project->tasks[0]->path(10), [
-            'body' => 'foobar',
-            'completed' => true
-        ]);
+                'body' => 'foobar',
+                'completed' => true
+            ]);
 
         $this->assertCount(3, $project->activity);
 
-        $this->assertEquals('completed_task', $project->activity->last()->description);
+        tap($project->activity->last(), function ($activity) {
+            $this->assertEquals('completed_task', $activity->description);
+            $this->assertInstanceOf(Task::class, $activity->subject);
+        });
     }
 
     /** @test */
@@ -73,9 +81,9 @@ class TriggerActivityTest extends TestCase
         $this->assertCount(3, $project->activity);
 
         $this->patch($project->tasks[0]->path(10), [
-                'body' => 'foobar',
-                'completed' => false
-            ]);
+            'body' => 'foobar',
+            'completed' => false
+        ]);
 
         $this->assertCount(4, $project->fresh()->activity);
 
