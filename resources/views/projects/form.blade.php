@@ -6,7 +6,7 @@
     <div class="control">
         <input
             type="text"
-            class="input bg-transparent border border-grey-light rounded p-2 text-xs w-full"
+            class="input bg-transparent border border-gray-400 rounded p-2 text-xs w-full"
             name="title"
             placeholder="My next awesome project"
             required
@@ -21,7 +21,7 @@
             <textarea
                 name="description"
                 rows="10"
-                class="textarea bg-transparent border border-grey-light rounded p-2 text-xs w-full"
+                class="textarea bg-transparent border border-gray-400 rounded p-2 text-xs w-full"
                 placeholder="I should start learning piano."
                 required>{{ $project->description }}</textarea>
     </div>

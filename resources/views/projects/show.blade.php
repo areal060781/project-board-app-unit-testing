@@ -3,8 +3,8 @@
 @section('content')
     <header class="flex items-center mb-3 pb-4">
         <div class="flex justify-between items-end w-full">
-            <p class="text-grey text-sm font-normal">
-                <a href="/projects" class="text-grey text-sm font-normal no-underline hover:underline">My Projects</a>
+            <p class="text-gray-400 text-sm font-normal">
+                <a href="/projects" class="text-gray-400 text-sm font-normal no-underline hover:underline">My Projects</a>
                 / {{ $project->title }}
             </p>
 
@@ -16,7 +16,7 @@
         <div class="lg:flex -mx-3">
             <div class="lg:w-3/4 px-3 mb-6">
                 <div class="mb-8">
-                    <h2 class="text-lg text-grey font-normal mb-3">Tasks</h2>
+                    <h2 class="text-lg text-gray-400 font-normal mb-3">Tasks</h2>
 
                     {{-- tasks --}}
                     @foreach ($project->tasks as $task)
@@ -26,7 +26,7 @@
                                 @csrf
 
                                 <div class="flex items-center">
-                                    <input name="body" value="{{ $task->body }}" class="w-full {{ $task->completed ? 'text-grey' : '' }}">
+                                    <input name="body" value="{{ $task->body }}" class="w-full {{ $task->completed ? 'text-gray-400' : '' }}">
                                     <input name="completed" type="checkbox" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
                                 </div>
                             </form>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div>
-                    <h2 class="text-lg text-grey font-normal mb-3">General Notes</h2>
+                    <h2 class="text-lg text-gray-400 font-normal mb-3">General Notes</h2>
 
                     {{-- general notes --}}
                     <form method="POST" action="{{ $project->path() }}">
