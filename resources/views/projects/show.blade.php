@@ -3,12 +3,26 @@
 @section('content')
     <header class="flex items-center mb-3 pb-4">
         <div class="flex justify-between items-end w-full">
-            <p class="text-gray-400 text-sm font-normal">
-                <a href="/projects" class="text-gray-400 text-sm font-normal no-underline hover:underline">My Projects</a>
+            <p class="text-gray-500 text-sm font-normal">
+                <a href="/projects" class="text-gray-500 text-sm font-normal no-underline hover:underline">My Projects</a>
                 / {{ $project->title }}
             </p>
 
-            <a href="{{ $project->path().'/edit' }}" class="button">Edit Project</a>
+            <div class="flex items-center">
+                @foreach ($project->members as $member)
+                    <img
+                        src="{{ gravatar_url($member->email) }}"
+                        alt="{{ $member->name }}'s avatar"
+                        class="rounded-full w-8 mr-2">
+                @endforeach
+
+                <img
+                    src="{{ gravatar_url($project->owner->email) }}"
+                    alt="{{ $project->owner->name }}'s avatar"
+                    class="rounded-full w-8 mr-2">
+
+                <a href="{{ $project->path().'/edit' }}" class="button ml-4">Edit Project</a>
+            </div>
         </div>
     </header>
 
@@ -16,7 +30,7 @@
         <div class="lg:flex -mx-3">
             <div class="lg:w-3/4 px-3 mb-6">
                 <div class="mb-8">
-                    <h2 class="text-lg text-gray-400 font-normal mb-3">Tasks</h2>
+                    <h2 class="text-lg text-gray-500 font-normal mb-3">Tasks</h2>
 
                     {{-- tasks --}}
                     @foreach ($project->tasks as $task)
@@ -26,7 +40,7 @@
                                 @csrf
 
                                 <div class="flex items-center">
-                                    <input name="body" value="{{ $task->body }}" class="w-full {{ $task->completed ? 'text-gray-400' : '' }}">
+                                    <input name="body" value="{{ $task->body }}" class="w-full {{ $task->completed ? 'text-gray-500' : '' }}">
                                     <input name="completed" type="checkbox" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
                                 </div>
                             </form>
@@ -43,7 +57,7 @@
                 </div>
 
                 <div>
-                    <h2 class="text-lg text-gray-400 font-normal mb-3">General Notes</h2>
+                    <h2 class="text-lg text-gray-500 font-normal mb-3">General Notes</h2>
 
                     {{-- general notes --}}
                     <form method="POST" action="{{ $project->path() }}">
