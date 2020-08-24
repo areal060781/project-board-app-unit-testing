@@ -17,7 +17,7 @@ class ProjectInvitationRequest extends FormRequest
      */
     public function authorize()
     {
-        Gate::allows('manage', $this->route('project'));
+        return Gate::allows('manage', $this->route('project'));
     }
 
     /**
