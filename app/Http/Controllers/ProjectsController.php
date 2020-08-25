@@ -66,13 +66,21 @@ class ProjectsController extends Controller
     {
         $project = auth()->user()->projects()->create($this->validateRequest());
 
+        if ($tasks = request('tasks')) {
+            $project->addTasks($tasks);
+        }
+
+        if (request()->wantsJson()) {
+            return ['message' => $project->path()];
+        }
+
         return redirect($project->path());
     }
 
     /**
      * Edit the project.
      *
-     * @param  Project $project
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
     public function edit(Project $project)
@@ -83,7 +91,7 @@ class ProjectsController extends Controller
     /**
      * Update the project.
      *
-     * @param  Project $project
+     * @param Project $project
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
